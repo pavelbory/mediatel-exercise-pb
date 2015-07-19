@@ -1,0 +1,47 @@
+﻿@model MediatelExercise1.Models.MapSearchResultVM
+@using MediatelExercise1.BusinessLogic
+
+<div>
+    <h4>@MediatelResources.ViewHeaderSearchAddress</h4>
+    <hr />
+    <fieldset>
+        <div class="control-label">
+            @Html.LabelFor(model => model.ResultCode)
+        </div>
+        <div>
+            @* TODO localized enum *@
+            @Html.DisplayFor(model => model.ResultCode)
+        </div>
+
+        @if ((OSMClient.SearchResultCode)Enum.Parse(typeof(OSMClient.SearchResultCode), Model.ResultCode) == OSMClient.SearchResultCode.OK)
+        {
+            <div class="control-label">
+                @Html.LabelFor(model => model.Country)
+            </div>
+            <div>
+                @Html.DisplayFor(model => model.Country)
+            </div>
+
+            <div class="control-label">
+                @Html.LabelFor(model => model.City)
+            </div>
+            <div>
+                @Html.DisplayFor(model => model.City)
+            </div>
+
+            <div class="control-label">
+                @Html.LabelFor(model => model.HouseNumber)
+            </div>
+            <div>
+                @Html.DisplayFor(model => model.HouseNumber)
+            </div>
+
+            <div class="control-label">
+                @Html.LabelFor(model => model.PostCode)
+            </div>
+            <div>
+                @Html.DisplayFor(model => model.PostCode)
+            </div>
+        }
+    </fieldset>
+</div>

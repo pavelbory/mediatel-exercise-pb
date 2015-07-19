@@ -1,0 +1,63 @@
+﻿@model MediatelExercise1.Models.MapRequestVM
+
+<h2>@MediatelResources.ViewHeaderIndex</h2>
+
+@using (Ajax.BeginForm("SearchAddress", "Home", new AjaxOptions { UpdateTargetId = "searchAddressResult", InsertionMode = InsertionMode.Replace }))
+{
+    @Html.ValidationSummary(false)
+    <fieldset>
+        <div class="control-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="control-label">
+            @Html.LabelFor(model => model.LatDegrees, @MediatelResources.LabelLatitude);
+        </div>
+        <div>
+            @Html.EditorFor(model => model.LatDegrees)
+            @Html.LabelFor(model => model.LatDegrees)
+            @Html.ValidationMessageFor(model => model.LatDegrees)
+
+            @Html.EditorFor(model => model.LatMinutes)
+            @Html.LabelFor(model => model.LatMinutes)
+            @Html.ValidationMessageFor(model => model.LatMinutes)
+
+            @Html.EditorFor(model => model.LatSeconds)
+            @Html.LabelFor(model => model.LatSeconds)
+            @Html.ValidationMessageFor(model => model.LatSeconds)
+
+            @Html.EnumDropDownListFor(m => m.LatDirection)
+        </div>
+
+        <div class="control-label">
+            @Html.LabelFor(model => model.LonDegrees, @MediatelResources.LabelLongitude);
+        </div>
+        <div>
+            @Html.EditorFor(model => model.LonDegrees)
+            @Html.LabelFor(model => model.LonDegrees)
+            @Html.ValidationMessageFor(model => model.LonDegrees)
+
+            @Html.EditorFor(model => model.LonMinutes)
+            @Html.LabelFor(model => model.LonMinutes)
+            @Html.ValidationMessageFor(model => model.LonMinutes)
+
+            @Html.EditorFor(model => model.LonSeconds)
+            @Html.LabelFor(model => model.LonSeconds)
+            @Html.ValidationMessageFor(model => model.LonSeconds)
+
+            @Html.EnumDropDownListFor(m => m.LonDirection)
+        </div>
+
+    </fieldset>
+    <p>
+        <input type="submit" value="@MediatelResources.LabelSearch" />
+    </p>
+}
+
+<div id="searchAddressResult">
+    
+</div>
